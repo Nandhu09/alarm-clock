@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Alarm Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+        }
+        .container {
+            background-color: #2d2d2d;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ccc;
+        }
+        .alarm-form {
+            margin-bottom: 30px;
+        }
+        .alarm-list {
+            margin-top: 30px;
+        }
+        .alarm-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #3a3a3a;
+            border-radius: 4px;
+            align-items: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background-color: #3a3a3a;
+            color: #fff;
+            font-size: 16px;
+        }
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #f44336;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        .current-time {
+            text-align: center;
+            font-size: 36px;
+            margin: 20px 0;
+            color: #fff;
+            font-weight: bold;
+        }
+        .add-alarm-btn {
+            width: 100%;
+            background-color: #2196F3;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .add-alarm-btn:hover {
+            background-color: #0b7dda;
+        }
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+            background-color: rgba(244, 67, 54, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success-message {
+            color: #4CAF50;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+            background-color: rgba(76, 175, 80, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alarm Clock</h1>
+        
+        <div class="current-time" id="current-time">00:00:00</div>
+        
+        <div class="alarm-form">
+            <div class="form-group">
+                <label for="alarm-time">Set Alarm Time</label>
+                <input type="time" id="alarm-time" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alarm-message">Alarm Message</label>
+                <input type="text" id="alarm-message" placeholder="Enter a message for this alarm">
+            </div>
+            
+            <div class="form-group">
+                <label for="sound-type">Sound Type</label>
+                <select id="sound-type">
+                    <option value="Standard">Standard</option>
+                    <option value="High Pitch">High Pitch</option>
+                    <option value="Low Pitch">Low Pitch</option>
+                    <option value="Pulse">Pulse</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="snooze-time">Snooze Time (minutes)</label>
+                <select id="snooze-time">
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="30">30 minutes</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="repeat-daily">
+                    Repeat Daily
+                </label>
+            </div>
+            
+            <div id="error-message" class="error-message">Failed to add alarm</div>
+            <div id="success-message" class="success-message">Alarm added successfully!</div>
+            
+            <button id="add-alarm" class="add-alarm-btn">Add Alarm</button>
+        </div>
+        
+        <div class="alarm-list">
+            <h2>Your Alarms</h2>
+            <div id="alarms-container">
+                <!-- Alarm items will be added here -->
+                <p>No alarms set. Add an alarm to get started.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="alert" class="alert"></div>
+
+    <!-- Load the app.js script -->
+    <script src="app.js"></script>
+</body>
+</html> 

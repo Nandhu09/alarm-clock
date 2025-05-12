@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Alarm Clock</h1>
+            <div class="clock">
+                <div class="time">
+                    <span id="hours">00</span>:
+                    <span id="minutes">00</span>:
+                    <span id="seconds">00</span>
+                </div>
+                <div id="date" class="date">Monday, January 1, 2024</div>
+            </div>
+        </header>
+        
+        <section class="add-alarm">
+            <h2>Add New Alarm</h2>
+            <form id="alarm-form">
+                <div class="form-group">
+                    <label for="alarm-time">Time:</label>
+                    <input type="time" id="alarm-time" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="alarm-message">Message:</label>
+                    <input type="text" id="alarm-message" placeholder="Wake up!">
+                </div>
+                
+                <div class="form-group">
+                    <label for="alarm-sound">Sound:</label>
+                    <select id="alarm-sound">
+                        <option value="standard">Standard</option>
+                        <option value="High Pitch">High Pitch</option>
+                        <option value="Low Pitch">Low Pitch</option>
+                        <option value="Pulse">Pulse</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="snooze-time">Snooze (minutes):</label>
+                    <select id="snooze-time">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="alarm-repeat">
+                    <label for="alarm-repeat">Repeat Daily</label>
+                </div>
+                
+                <button type="button" id="add-alarm" class="btn">Add Alarm</button>
+            </form>
+        </section>
+        
+        <section class="alarms">
+            <h2>Active Alarms</h2>
+            <div id="alarms-container"></div>
+        </section>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 
