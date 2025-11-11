@@ -1,4 +1,4 @@
-# Java Spring Boot Alarm Clock Application
+# Java Alarm Clock Application
 
 A full-stack alarm clock application built with Java Spring Boot, H2 Database, and JavaScript.
 
@@ -80,5 +80,6 @@ The application provides the following RESTful API endpoints:
 To modify the port or other settings, edit the `application.properties` file located in `src/main/resources/`.
 
 ## License
+
 
 MIT License - Feel free to use and modify as needed. 
